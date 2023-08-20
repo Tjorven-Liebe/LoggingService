@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'de.tjorven'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+publishing {
+    repositories {
+        maven {
+            url 'https://repos.tjorven-liebe.de/private'
+            credentials {
+                username = System.getenv("TJORVEN_LIEBE_REPO_USERNAME")
+                password = System.getenv("TJORVEN_LIEBE_REPO_PASSWORD")
+            }
+        }
+    }
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = "api"
+            version = version
+            from components.java
+        }
+    }
+}
