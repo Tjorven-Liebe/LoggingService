@@ -4,6 +4,10 @@ import java.io.PrintStream;
 
 public class Logger {
 
+    public static Logger getLogger() {
+        return new Logger();
+    }
+
     private final PrintStream out = System.out;
 
     public <T> void log(LoggingLevel loggingLevel, T text) {

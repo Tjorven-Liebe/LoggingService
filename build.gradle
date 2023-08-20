@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'de.tjorven'
-version = '1.0-SNAPSHOT'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ dependencies {
 publishing {
     repositories {
         maven {
-            url 'https://repos.tjorven-liebe.de/private'
+            url 'https://repos.tjorven-liebe.de/releases'
             credentials {
                 username = System.getenv("TJORVEN_LIEBE_REPO_USERNAME")
                 password = System.getenv("TJORVEN_LIEBE_REPO_PASSWORD")
@@ -26,7 +26,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = group
-            artifactId = "api"
+            artifactId = "logger"
             version = version
             from components.java
         }
